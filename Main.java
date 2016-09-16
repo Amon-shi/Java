@@ -17,13 +17,15 @@ public class Main{
         }
     }
     public static void main(){
-        Random rand = new Random;
+        Random rand = new Random();
         int[] c = new int[100];
         for(int k=0; k < 100; k++ ){
             c[k]=rand.nextInt(50);
         }
 
         insertionSort(c);
-
+        for(int k=0; k < 100; k++ ){
+            System.out.print(c[k]);
+        }
     }
 }
