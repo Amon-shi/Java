@@ -16,16 +16,19 @@ public class Main{
             arr[prevKey+1] = currElem;
         }
     }
-    public static void main(){
+    public static void main(String []arg){
         Random rand = new Random();
-        int[] c = new int[100];
-        for(int k=0; k < 100; k++ ){
+        int[] c = new int[10];
+        for(int k=0; k < 10; k++ ){
             c[k]=rand.nextInt(50);
         }
-
+        for(int k=0; k < 10; k++ ) {
+            System.out.print(c[k]+" ");
+        }
         insertionSort(c);
-        for(int k=0; k < 100; k++ ){
-            System.out.print(c[k]);
+        System.out.println(" ");
+        for(int k=0; k < 10; k++ ){
+            System.out.print(c[k]+" ");
         }
     }
 }
