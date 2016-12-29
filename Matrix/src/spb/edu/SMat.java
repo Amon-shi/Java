@@ -127,7 +127,7 @@ public class SMat implements Matrix {
             }
         }
     }
-    private SMat pmulSS(SMat m2) throws InterruptedException, IOException {
+    public SMat pmulSS(SMat m2) throws InterruptedException, IOException {
         Dispatch d = new Dispatch();
         SMat m1 = this;
         SMat res = new SMat(null);

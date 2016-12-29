@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class DMat implements Matrix {
 
-    public DMat(String fileName) throws IOException {
+    public DMat(String fileName) {
         if (fileName != null) {
             this.list = new ArrayList();
             this.list = this.getMat(fileName);
@@ -147,7 +147,7 @@ public class DMat implements Matrix {
 //        return res;
 //    }
 
-    private DMat mulDD(DMat b) throws IOException {
+    private DMat mulDD(DMat b)  {
         DMat a = this;
         DMat res = new DMat(null);
         b=b.transpose(b);
@@ -172,7 +172,7 @@ public class DMat implements Matrix {
         return res;
     }
 
-    private DMat transpose(DMat a) throws IOException {
+    private DMat transpose(DMat a) {
         DMat newA = new DMat(null);
         newA.arr = new double[a.arr.length][a.arr.length];
         for (int i = 0; i < a.arr.length; i++) {
@@ -200,22 +200,30 @@ public class DMat implements Matrix {
         }
     }
 
-    private void readFile() throws IOException {
-
-        String s = r.readLine();
-
+    private void readFile() {
+        String s;
+        try {
+            s = r.readLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+            s = null;
+        }
         while (s != null) {
             for (String val : s.split(" ")) {
                 row.add(Double.parseDouble(val));
             }
             arrayList.add((ArrayList) row.clone());
             row.clear();
-            s = r.readLine();
+            try {
+                s = r.readLine();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
 
-    public ArrayList<ArrayList> getMat(String fileName) throws IOException {
+    public ArrayList<ArrayList> getMat(String fileName)  {
         arrayList = new ArrayList<ArrayList>();
         row = new ArrayList<Double>();
         this.fileName = fileName;
